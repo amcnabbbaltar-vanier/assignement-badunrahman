@@ -888,7 +888,7 @@ MonoBehaviour:
   minJumpForce: 5
   maxJumpForce: 12
   maxChargeTime: 3
-  doubleJumpForce: 8
+  doubleJumpForce: 10
   hasDoubleJumpPowerUp: 0
   groundCheck: {fileID: 643700186}
   groundCheckRadius: 0.2
