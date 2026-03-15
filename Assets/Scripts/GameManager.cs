@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton logic
         if (Instance == null)
         {
             Instance = this;
@@ -27,13 +26,6 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("Timer: " + timer);
-            Debug.Log("Score: " + score);
-            Debug.Log("Health: " + health);
-        }
     }
 
     public void AddScore(int amount)
@@ -44,6 +36,7 @@ public class GameManager : MonoBehaviour
     public void LoseHealth(int amount)
     {
         health -= amount;
+        Debug.Log("Health is now: " + health);
 
         if (health <= 0)
         {

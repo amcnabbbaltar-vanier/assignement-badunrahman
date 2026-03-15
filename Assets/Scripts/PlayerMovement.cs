@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     private float originalWalkSpeed;
     private float originalRunSpeed;
 
+    private bool isDead = false;
+
+    [Header("Fall Check")]
+    public float fallThreshold = -5f;
+
     [Header("Movement Settings")]
     public float walkSpeed = 4f;
     public float runSpeed = 7f;
@@ -98,6 +103,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             ActivateDoubleJumpPowerUp(30f);
+        }
+
+        if (!isDead && transform.position.y < fallThreshold)
+        {
+            isDead = true;
+
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.LoseHealth(1);
+                GameManager.Instance.RestartCurrentLevel();
+            }
         }
     }
 
